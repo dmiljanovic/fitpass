@@ -2,21 +2,21 @@
 
 namespace Modules\Venue\Entities;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Modules\Venue\Database\factories\VenueFactory;
 
 class Venue extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'id',
         'name',
         'capacity'
     ];
 
     protected static function newFactory()
     {
-        return \Modules\Venue\Database\factories\VenueFactory::new();
+        return VenueFactory::new();
     }
 }
