@@ -5,7 +5,7 @@ namespace Modules\Event\Tests\Feature;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use Modules\Event\Entities\Event;
-use Modules\Event\Entities\Venue;
+use Modules\Venue\Entities\Venue;
 use Tests\TestCase;
 
 class EventTest extends TestCase
@@ -25,7 +25,7 @@ class EventTest extends TestCase
     }
 
     /** @test */
-    public function get_all_events(): void
+    public function test_get_all_events(): void
     {
         $response = $this->get('/api/events');
 

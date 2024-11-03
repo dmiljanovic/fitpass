@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Modules\Event\Entities\Event;
+use Modules\Payment\Database\factories\PaymentFactory;
 
 class Payment extends Model
 {
@@ -30,5 +31,10 @@ class Payment extends Model
     public function event(): BelongsTo
     {
         return $this->belongsTo(Event::class);
+    }
+
+    protected static function newFactory()
+    {
+        return PaymentFactory::new();
     }
 }
