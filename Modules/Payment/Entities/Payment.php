@@ -25,7 +25,7 @@ class Payment extends Model
     ];
 
     /**
-     * Get the venue associated with the event.
+     * Get the event that owns the payment.
      */
     public function event(): BelongsTo
     {

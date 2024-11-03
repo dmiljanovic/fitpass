@@ -23,7 +23,7 @@ class Event extends Model
     ];
 
     /**
-     * Get the venue associated with the event.
+     * Get the venue that owns the event.
      */
     public function venue(): BelongsTo
     {
