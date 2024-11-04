@@ -55,7 +55,7 @@ class EventController extends Controller
 
             DB::rollBack();
 
-            return response()->json(['error' => $e->getMessage()], 500);
+            return response()->json(['error' => $e->getMessage()], 400);
         }
 
         DB::commit();
