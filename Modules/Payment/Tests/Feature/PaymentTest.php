@@ -44,7 +44,6 @@ class PaymentTest extends TestCase
     public function test_payment_already_made(): void
     {
         $response = $this->postJson('/api/events/' . $this->event->id . '/purchase', ['email' => 'test@test.com']);
-        $response->withException(new \Exception('Email already used for this event.'));
         $response->assertStatus(500)
             ->assertJson([
                 'error' => 'Email already used for this event.',
@@ -57,7 +56,6 @@ class PaymentTest extends TestCase
         $this->event->save();
 
         $response = $this->postJson('/api/events/' . $this->event->id . '/purchase', ['email' => 'test2@test.com']);
-        $response->withException(new \Exception('No available seats for this event.'));
         $response->assertStatus(500)
             ->assertJson([
                 'error' => 'No available seats for this event.',
@@ -70,7 +68,6 @@ class PaymentTest extends TestCase
         $this->event->save();
 
         $response = $this->postJson('/api/events/' . $this->event->id . '/purchase', ['email' => 'test2@test.com']);
-        $response->withException(new \Exception('The event is closed.'));
         $response->assertStatus(500)
             ->assertJson([
                 'error' => 'The event is closed.',
